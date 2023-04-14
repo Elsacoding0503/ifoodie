@@ -60,3 +60,4 @@ df["tags"] = res_tag
 
 df_ifoodie = pd.DataFrame(df)
 
+print(df_ifoodie)
