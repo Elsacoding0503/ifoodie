@@ -4,7 +4,8 @@ import time, random
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup as bs
 import pandas as pd
-
+import os
+from google.cloud import bigquery
 
 ua = UserAgent()
 
@@ -30,14 +31,11 @@ for i in range(1,17):
     
     tags = obj_ifoodie.find_all("div", "jsx-1156793088 category-row")
     for ele in tags:
-        listoftag=""
         tag_each = ele.find_all("a", "jsx-1156793088 category")
-        for each_ele in range(1,len(tag_each)):
-            listoftag += tag_each[each_ele].text + ","
-        res_tag.append(listoftag)
+        res_tag.append(','.join(tag_each[i].text for i in range(1, len(tag_each))))
     
     for j in name:
-        res_name.append(j.text)
+        res_name= [j.text]
         
     for k in rate:
         res_rate.append(k.text)
@@ -59,5 +57,4 @@ df["addr"] = res_addr
 df["tags"] = res_tag
 
 df_ifoodie = pd.DataFrame(df)
-
-print(df_ifoodie)
+df_ifoodie
