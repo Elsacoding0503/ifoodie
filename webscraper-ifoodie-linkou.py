@@ -33,7 +33,7 @@ for i in range(1,17):
         res_tag.append(','.join(tag_each[i].text for i in range(1, len(tag_each))))
     
     for j in name:
-        res_name= [j.text]
+        res_name.append(j.text)
         
     for k in rate:
         res_rate.append(k.text)
