@@ -55,4 +55,4 @@ df["addr"] = res_addr
 df["tags"] = res_tag
 
 df_ifoodie = pd.DataFrame(df)
-df_ifoodie
+print(df_ifoodie)
