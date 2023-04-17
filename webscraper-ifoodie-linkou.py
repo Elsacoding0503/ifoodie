@@ -4,8 +4,6 @@ import time, random
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup as bs
 import pandas as pd
-import os
-from google.cloud import bigquery
 
 ua = UserAgent()
 
